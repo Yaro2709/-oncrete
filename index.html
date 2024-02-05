@@ -18,7 +18,6 @@
     <script type="text/javascript" src="scripts/bootstrap.min.js"></script> 
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-    
 </head>
 <body>   
     <nav class="navbar navbar-expand-md fixed-top bg-dark navbar-dark">
@@ -51,28 +50,60 @@
 						<form id="myForm">
 							<div class="form-group">
 								<label for="class">Класс бетона:</label>
-								<input type="number" class="form-control"  id="class" name="class">
-							</div>
-							
+								<select id="class" name="class" class="form-control changeAction">
+									<option value="7.5">7.5</option>
+									<option value="12.5">12.5</option>
+									<option value="15">15</option>
+									<option value="20">20</option>
+									<option value="22.5">22.5</option>
+									<option value="25">25</option>
+									<option value="30">30</option>
+									<option value="35">35</option>
+									<option value="40">40</option>
+									<option value="45">45</option>
+									<option value="50">50</option>
+									<option value="55">55</option>
+								</select>
+							</div>							
 							<div class="form-group">
 								<label for="cement">Марка цемента:</label>
-								<input type="number" class="form-control" id="cement" name="cement">
-							</div>
+								<select id="cement" name="cement" class="form-control changeAction">
+									<option value="300">300</option>
+									<option value="400">400</option>
+									<option value="500">500</option>
+									<option value="600">600</option>
+								</select>
+							</div>		
 							<div class="form-group">
 								<label for="consistency">Значение удобоукладываемости:</label>
-								<input type="number" class="form-control" id="consistency" name="consistency">
+								<select id="consistency" name="consistency" class="form-control changeAction">
+									<option value="1">Ж4 (31-50)</option>
+									<option value="2">ЖЗ (21-30)</option>
+									<option value="3">Ж2 (10-20)</option>
+									<option value="4">Ж1 (5-10)</option>
+									<option value="5">П1 (1-4) </option>
+									<option value="6">П2 (5-9)</option>
+									<option value="7">ПЗ (10-15)</option>
+									<option value="8">П4 (16-20)</option>
+									<option value="9">П5 (21-25)</option>
+								</select>
 							</div>
 							<div class="form-group">
 								<label for="additive">Добавка:</label>
 								<select id="additive" name="additive" class="form-control changeAction">
-								  <option value="1">Нет</option>
-								  <option value="2">Водоредуцирующая</option>
-								  <option value="3">Суперводоредуцирующая</option>
+									<option value="1">Нет</option>
+									<option value="2">Водоредуцирующая</option>
+									<option value="3">Суперводоредуцирующая</option>
 								</select>
-							</div>
+							</div>							
 							<div class="form-group">
 								<label for="cementAmount">Расход цемента:</label>
-								<input type="number" class="form-control" id="cementAmount" name="cementAmount">
+								<select id="cementAmount" name="cementAmount" class="form-control changeAction">
+									<option value="200">200</option>
+									<option value="300">300</option>
+									<option value="400">400</option>
+									<option value="500">500</option>
+								</select>
 							</div>
 							<div class="form-group">
 								<label for="grainSize">Крупность щебня:</label>
@@ -91,6 +122,7 @@
         </div>
     </main>
 	<script>
+	
 	function calculate() {
 		var form = document.getElementById("myForm");
 		var Rb1 = parseFloat(form.elements["class"].value);
