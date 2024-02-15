@@ -51,29 +51,20 @@
 							<div class="form-group">
 								<label for="class">Класс бетона:</label>
 								<select id="class" name="class" class="form-control changeAction">
-									<option value="7.5">7.5</option>
-									<option value="12.5">12.5</option>
-									<option value="15">15</option>
-									<option value="20">20</option>
-									<option value="22.5">22.5</option>
-									<option value="25">25</option>
-									<option value="30">30</option>
-									<option value="35">35</option>
-									<option value="40">40</option>
-									<option value="45">45</option>
-									<option value="50">50</option>
-									<option value="55">55</option>
+									<option value="0">7.5</option>
+									<option value="1">12.5</option>
+									<option value="2">15</option>
+									<option value="3">20</option>
+									<option value="4">22.5</option>
+									<option value="5">25</option>
+									<option value="6">30</option>
+									<option value="7">35</option>
+									<option value="8">40</option>
+									<option value="9">45</option>
+									<option value="10">50</option>
+									<option value="11">55</option>
 								</select>
-							</div>							
-							<div class="form-group">
-								<label for="cement">Марка цемента:</label>
-								<select id="cement" name="cement" class="form-control changeAction">
-									<option value="300">300</option>
-									<option value="400">400</option>
-									<option value="500">500</option>
-									<option value="600">600</option>
-								</select>
-							</div>		
+							</div>								
 							<div class="form-group">
 								<label for="consistency">Значение удобоукладываемости:</label>
 								<select id="consistency" name="consistency" class="form-control changeAction">
@@ -95,16 +86,14 @@
 									<option value="2">Водоредуцирующая</option>
 									<option value="3">Суперводоредуцирующая</option>
 								</select>
-							</div>							
+							</div>	
 							<div class="form-group">
-								<label for="cementAmount">Расход цемента:</label>
-								<select id="cementAmount" name="cementAmount" class="form-control changeAction">
-									<option value="200">200</option>
-									<option value="300">300</option>
-									<option value="400">400</option>
-									<option value="500">500</option>
+								<label for="grainType">Тип щебня:</label>
+								<select id="grainType" name="grainType" class="form-control changeAction">
+									<option value="0">Гранитный</option>
+									<option value="1">Известняковый</option>
 								</select>
-							</div>
+							</div>							
 							<div class="form-group">
 								<label for="grainSize">Крупность щебня:</label>
 								<select id="grainSize" name="grainSize" class="form-control changeAction">
@@ -123,13 +112,86 @@
     </main>
 	<script>
 	
+	function round100(val) {
+		return Math.round(val / 100) * 100;
+	}
+	
 	function calculate() {
+		var mean_prochnost = [9.63, 16.05, 19.26, 25.69, 28.9, 32.11, 38.35, 44.95, 51.37, 57.8, 64.2, 71.64];
+		var recommend_marka = [300, 300, 300, 400, 400, 400, 500, 500, 500, 600, 600, 600];
+		var recommend_class = [22.5, 22.5, 22.5, 32.5, 32.5, 32.5, 42.5, 42.5, 42.5, 52.5, 52.5, 52.5]; 
+		
 		var form = document.getElementById("myForm");
-		var Rb1 = parseFloat(form.elements["class"].value);
-		var Rb2 = Rb1 * 0.7;
-		var Rc = parseFloat(form.elements["cement"].value);
-		var CB = (Rb2 - 0.06 * Rc + 13) / (0.24 * Rc + 13);
+		var class_bet = parseFloat(form.elements["class"].value);
 
+		mean_pr = 0;
+		rec_class = 0;
+		rec_marka = 0;
+		if(class_bet == 0){
+			mean_pr = mean_prochnost[0];
+			rec_class = recommend_class[0];
+			rec_marka = recommend_marka[0];
+		}
+		else if(class_bet == 1){
+			mean_pr = mean_prochnost[1];
+			rec_class = recommend_class[1];
+			rec_marka = recommend_marka[1];
+		}
+		else if(class_bet == 2){
+			mean_pr = mean_prochnost[2];
+			rec_class = recommend_class[2];
+			rec_marka = recommend_marka[2];
+		}
+		else if(class_bet == 3){
+			mean_pr = mean_prochnost[3];
+			rec_class = recommend_class[3];
+			rec_marka = recommend_marka[3];
+		}
+		else if(class_bet == 4){
+			mean_pr = mean_prochnost[4];
+			rec_class = recommend_class[4];
+			rec_marka = recommend_marka[4];
+		}
+		else if(class_bet == 5){
+			mean_pr = mean_prochnost[5];
+			rec_class = recommend_class[5];
+			rec_marka = recommend_marka[5];
+		}
+		else if(class_bet == 6){
+			mean_pr = mean_prochnost[6];
+			rec_class = recommend_class[6];
+			rec_marka = recommend_marka[6];
+		}
+		else if(class_bet == 7){
+			mean_pr = mean_prochnost[7];
+			rec_class = recommend_class[7];
+			rec_marka = recommend_marka[7];
+		}
+		else if(class_bet == 8){
+			mean_pr = mean_prochnost[8];
+			rec_class = recommend_class[8];
+			rec_marka = recommend_marka[8];
+		}
+		else if(class_bet == 9){
+			mean_pr = mean_prochnost[9];
+			rec_class = recommend_class[9];
+			rec_marka = recommend_marka[9];
+		}
+		else if(class_bet == 10){
+			mean_pr = mean_prochnost[10];
+			rec_class = recommend_class[10];
+			rec_marka = recommend_marka[10];
+		}
+		else if(class_bet == 11){
+			mean_pr = mean_prochnost[11];
+			rec_class = recommend_class[11];
+			rec_marka = recommend_marka[11];
+		}
+		
+		var CB = (mean_pr - 0.06 * rec_class + 13) / (0.24 * rec_class + 13)
+		var CB_bolshe = CB + 0.5
+		var CB_menshe = CB - 0.5
+		
 		var I = parseInt(form.elements["consistency"].value);
 		var dobav = parseInt(form.elements["additive"].value);
 		var B = 0;
@@ -144,53 +206,129 @@
 		}	
 
 		var C = CB * B;
-		var Vz = ((1000 - (B / 1)) - (C / 2.9));
+		var C_bolshe = CB_bolshe * B;
+		var C_menshe = CB_menshe * B; 
+		var round_C = round100((CB * B) + 50);
+		var round_C_bolshe = round100((CB_bolshe * B) + 50);
+		var round_С_menshe = round100((CB_menshe * B) + 50);
+		
+		console.log(round_C);
+		console.log(round_C_bolshe);
+		console.log(round_С_menshe);
+		
+		
+		var Vz = ((1000 - (B / 1)) - (C / 3.1));
+		var Vz_bolshe = ((1000 - (B / 1)) - (C_bolshe / 3.1));
+		var Vz_menshe = ((1000 - (B / 1)) - (C_menshe / 3.1));
 		
 		r10 = [0.54, 0.51, 0.48, 0.45];
 		r20 = [0.51, 0.48, 0.45, 0.42];
 		r40 = [0.48, 0.45, 0.42, 0.39];
 
-		var R = parseInt(form.elements["cementAmount"].value);
 		var krpn = parseInt(form.elements["grainSize"].value);
 		var r = 0;
-		if (R === 200 && krpn === 10) {
+		if (round_C === 200 && krpn === 10) {
 			r = r10[0];
-		} else if (R === 200 && krpn === 20) {
+		} else if (round_C === 200 && krpn === 20) {
 			r = r20[0];
-		} else if (R === 200 && krpn === 40) {
+		} else if (round_C === 200 && krpn === 40) {
 			r = r40[0];
-		} else if (R === 300 && krpn === 10) {
+		} else if (round_C === 300 && krpn === 10) {
 			r = r10[1];
-		} else if (R === 300 && krpn === 20) {
+		} else if (round_C === 300 && krpn === 20) {
 			r = r20[1];
-		} else if (R === 300 && krpn === 40) {
+		} else if (round_C === 300 && krpn === 40) {
 			r = r40[1];
-		} else if (R === 400 && krpn === 10) {
+		} else if (round_C === 400 && krpn === 10) {
 			r = r10[2];
-		} else if (R === 400 && krpn === 20) {
+		} else if (round_C === 400 && krpn === 20) {
 			r = r20[2];
-		} else if (R === 400 && krpn === 40) {
+		} else if (round_C === 400 && krpn === 40) {
 			r = r40[2];
-		} else if (R === 500 && krpn === 10) {
+		} else if (round_C === 500 && krpn === 10) {
 			r = r10[3];
-		} else if (R === 500 && krpn === 20) {
+		} else if (round_C === 500 && krpn === 20) {
 			r = r20[3];
-		} else if (R === 500 && krpn === 40) {
+		} else if (round_C === 500 && krpn === 40) {
 			r = r40[3];
 		}
-
-		var P = Vz * r * 1;
-		var rosch = 1400;
+		var P = Vz * r * 2.5;
+		
+		var r_bolshe = 0;
+		if (round_C_bolshe === 200 && krpn === 10) {
+			r_bolshe = r10[0];
+		} else if (round_C_bolshe === 200 && krpn === 20) {
+			r_bolshe = r20[0];
+		} else if (round_C_bolshe === 200 && krpn === 40) {
+			r_bolshe = r40[0];
+		} else if (round_C_bolshe === 300 && krpn === 10) {
+			r_bolshe = r10[1];
+		} else if (round_C_bolshe === 300 && krpn === 20) {
+			r_bolshe = r20[1];
+		} else if (round_C_bolshe === 300 && krpn === 40) {
+			r_bolshe = r40[1];
+		} else if (round_C_bolshe === 400 && krpn === 10) {
+			r_bolshe = r10[2];
+		} else if (round_C_bolshe === 400 && krpn === 20) {
+			r_bolshe = r20[2];
+		} else if (round_C_bolshe === 400 && krpn === 40) {
+			r_bolshe = r40[2];
+		} else if (round_C_bolshe === 500 && krpn === 10) {
+			r_bolshe = r10[3];
+		} else if (round_C_bolshe === 500 && krpn === 20) {
+			r_bolshe = r20[3];
+		} else if (round_C_bolshe === 500 && krpn === 40) {
+			r_bolshe = r40[3];
+		}
+		var P_bolshe = Vz_bolshe * r_bolshe * 2.5;
+		
+		var r_menshe = 0;
+		if (round_С_menshe === 200 && krpn === 10) {
+			r_menshe = r10[0];
+		} else if (round_С_menshe === 200 && krpn === 20) {
+			r_menshe = r20[0];
+		} else if (round_С_menshe === 200 && krpn === 40) {
+			r_menshe = r40[0];
+		} else if (round_С_menshe === 300 && krpn === 10) {
+			r_menshe = r10[1];
+		} else if (round_С_menshe === 300 && krpn === 20) {
+			r_menshe = r20[1];
+		} else if (round_С_menshe === 300 && krpn === 40) {
+			r_menshe = r40[1];
+		} else if (round_С_menshe === 400 && krpn === 10) {
+			r_menshe = r10[2];
+		} else if (round_С_menshe === 400 && krpn === 20) {
+			r_menshe = r20[2];
+		} else if (round_С_menshe === 400 && krpn === 40) {
+			r_menshe = r40[2];
+		} else if (round_С_menshe === 500 && krpn === 10) {
+			r_menshe = r10[3];
+		} else if (round_С_menshe === 500 && krpn === 20) {
+			r_menshe = r20[3];
+		} else if (round_С_menshe === 500 && krpn === 40) {
+			r_menshe = r40[3];
+		}
+		var P_menshe = Vz_menshe * r_menshe * 2.5;
+		
+		var rosch = parseInt(form.elements["grainType"].value);
+		if(rosch == 0){
+			rosch = 2.8;
+		}
+		else if(rosch == 1){
+			rosch = 2.5;
+		}
+		
 		var Sch = Vz * (1 - r) * rosch;
+		var Sch_bolshe = Vz_bolshe * (1 - r_bolshe) * rosch;
+		var Sch_menshe = Vz_menshe * (1 - r_menshe) * rosch;
 	 
 		// Проверка наличия значений
 		if (
-			isNaN(Rb1) || 
-			isNaN(Rc) || 
+			isNaN(class_bet) || 
 			isNaN(I) || 
 			isNaN(dobav) || 
 			isNaN(krpn) || 
-			isNaN(R)
+			isNaN(rosch) 
 		) {			
 			var result = 
 			"<div class='card mb-4 shadow-sm'>" + 
@@ -211,12 +349,29 @@
 			"<div class='card-body'>" + 
 				"<h5 class='card-title'>Результат</h5>" + 
 				"<p class='card-text'>" + 
-					"C / B: " + CB.toFixed(3) + "<br>" +
-					"Расход воды: " + B + "<br>" +
-					"Расход цемента: " + C.toFixed(3) + "<br>" +
-					"Vz: " + Vz.toFixed(3) + "<br>" +
-					"Количество мелкого заполнителя: " + P.toFixed(3) + "<br>" +
-					"Количество крупного заполнителя: " + Sch.toFixed(3) +
+					"Прочность бетона: " + mean_pr + "<br>" +
+					"Рекомендованный класс цемента: " + rec_class + "<br>" +
+					"Рекомендовання марка цемента: " + rec_marka + "<br>" +
+					"Ц/В основной состав: " + CB.toFixed(3) + "<br>" +
+					"Ц/В (состав №2): " + CB_bolshe.toFixed(3) + "<br>" +
+					"Ц/В (состав №3): " + CB_menshe.toFixed(3) + "<br>" +
+					"Расход воды (кг): " + B + "<br>" +
+					"Расход цемента (кг): " + C.toFixed(3) + "<br>" +
+					"Расход цемента (состав №2) (кг): " + C_bolshe.toFixed(3) + "<br>" +
+					"Расход цемента (состав №3) (кг): " + C_menshe.toFixed(3) + "<br>" +
+					"Абсолюный объем заполнителя (л): " + Vz.toFixed(3) + "<br>" +
+					"Абсолюный объем заполнителя (состав №2) (л): " + Vz_bolshe.toFixed(3) + "<br>" +
+					"Абсолюный объем заполнителя (состав №3) (л): " + Vz_menshe.toFixed(3) + "<br>" +
+					"Доля песка: " + r + "<br>" +
+					"Доля песка (состав №2): " + r_bolshe + "<br>" +
+					"Доля песка (состав №3): " + r_menshe + "<br>" +
+					"Количество мелкого заполнителя (кг): " + P.toFixed(3) + "<br>" +
+					"Количество мелкого заполнителя (состав №2) (кг): " + P_bolshe.toFixed(3) + "<br>" +
+					"Количество мелкого заполнителя (состав №3) (кг): " + P_menshe.toFixed(3) + "<br>" +
+					"Истинная плотность (г/см^3): " + rosch + "<br>" +
+					"Количество крупного заполнителя (кг): " + Sch.toFixed(3) + "<br>" +
+					"Количество крупного заполнителя (состав №2) (кг): " + Sch_bolshe.toFixed(3) + "<br>" +
+					"Количество крупного заполнителя (состав №3) (кг): " + Sch_menshe.toFixed(3) +
 				"</p>"+
 			"</div>" +
 		"</div>";
