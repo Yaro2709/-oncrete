@@ -212,18 +212,13 @@
 		var round_C_bolshe = round100((CB_bolshe * B) + 50);
 		var round_С_menshe = round100((CB_menshe * B) + 50);
 		
-		console.log(round_C);
-		console.log(round_C_bolshe);
-		console.log(round_С_menshe);
-		
-		
 		var Vz = ((1000 - (B / 1)) - (C / 3.1));
 		var Vz_bolshe = ((1000 - (B / 1)) - (C_bolshe / 3.1));
 		var Vz_menshe = ((1000 - (B / 1)) - (C_menshe / 3.1));
 		
-		r10 = [0.54, 0.51, 0.48, 0.45];
-		r20 = [0.51, 0.48, 0.45, 0.42];
-		r40 = [0.48, 0.45, 0.42, 0.39];
+		r10 = [0.54, 0.51, 0.48, 0.45, 0.57];
+		r20 = [0.51, 0.48, 0.45, 0.42, 0.54];
+		r40 = [0.48, 0.45, 0.42, 0.39, 0.51];
 
 		var krpn = parseInt(form.elements["grainSize"].value);
 		var r = 0;
@@ -251,6 +246,12 @@
 			r = r20[3];
 		} else if (round_C === 500 && krpn === 40) {
 			r = r40[3];
+		} else if (round_C === 100 && krpn === 10) {
+			r = r10[4];
+		} else if (round_C === 100 && krpn === 20) {
+			r = r20[4];
+		} else if (round_C === 100 && krpn === 40) {
+			r = r40[4];
 		}
 		var P = Vz * r * 2.5;
 		
@@ -279,6 +280,12 @@
 			r_bolshe = r20[3];
 		} else if (round_C_bolshe === 500 && krpn === 40) {
 			r_bolshe = r40[3];
+		} else if (round_C_bolshe === 100 && krpn === 10) {
+			r_bolshe = r10[4];
+		} else if (round_C_bolshe === 100 && krpn === 20) {
+			r_bolshe = r20[4];
+		} else if (round_C_bolshe === 100 && krpn === 40) {
+			r_bolshe = r40[4];
 		}
 		var P_bolshe = Vz_bolshe * r_bolshe * 2.5;
 		
@@ -307,6 +314,12 @@
 			r_menshe = r20[3];
 		} else if (round_С_menshe === 500 && krpn === 40) {
 			r_menshe = r40[3];
+		} else if (round_С_menshe === 100 && krpn === 10) {
+			r_menshe = r10[4];
+		} else if (round_С_menshe === 100 && krpn === 20) {
+			r_menshe = r20[4];
+		} else if (round_С_menshe === 100 && krpn === 40) {
+			r_menshe = r40[4];
 		}
 		var P_menshe = Vz_menshe * r_menshe * 2.5;
 		
