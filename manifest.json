@@ -1,7 +1,7 @@
 {
-  "short_name": "БетонОнлайн",
-  "name": "БетонОнлайн",
-  "description": "БетонОнлайн",
+  "short_name": "ConcreteOnline",
+  "name": "ConcreteOnline",
+  "description": "ConcreteOnline",
   "author": "Yaro2709",
   "categories": ["game"],
   "icons": [
@@ -29,16 +29,16 @@
     },
   "shortcuts": [
     {
-      "name": "БетонОнлайн",
-      "short_name": "БетонОнлайн",
-      "description": "БетонОнлайн",
+      "name": "ConcreteOnline",
+      "short_name": "ConcreteOnline",
+      "description": "ConcreteOnline",
       "url": "./index.html",
       "icons": [{ "src": "./img/192.png", "sizes": "192x192" }]
     },
     {
-      "name": "БетонОнлайн",
-      "short_name": "БетонОнлайн",
-      "description": "БетонОнлайн",
+      "name": "ConcreteOnline",
+      "short_name": "ConcreteOnline",
+      "description": "ConcreteOnline",
       "url": "./index.html",
       "icons": [{ "src": "./img/512.png", "sizes": "512x512" }]
     }
